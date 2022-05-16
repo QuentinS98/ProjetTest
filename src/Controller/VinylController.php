@@ -2,16 +2,19 @@
 
 namespace App\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\annotation\Route;
 use function Symfony\Component\String\u;
 
-class MyController
+class VinylController extends AbstractController
 {
     #[Route('/')]
-    public function MaPageDeGarde()
+    public function MaPageDeGarde(): Response
     {
-        return new Response('Title : "Mon serveur test"');
+        return $this->render('vinyl/MaPageDeGarde.html.twig', [
+            'title' => 'PB& Jams',
+        ]);
     }
 
     #[Route('/browse/{slug}')]
